@@ -1,0 +1,17 @@
+@hostname = localhost
+@port = 7077
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+
+#POST https://{{host}}/authors/create
+#Content-Type:{{contentType}}
+
+#{
+ #   "name": "Joe",
+ #   "permissions": "author"
+#}
+
+###
+
+# Comments
+GET https://{{host}}/WeatherForecast/

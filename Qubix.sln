@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Qubix.API", "Qubix.API\Qubix.API.csproj", "{44F71AFF-C5CE-43E5-B718-65A35D15FA1D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Qubix.Application", "Qubix.Application\Qubix.Application.csproj", "{696C0770-C929-40B3-89FC-E7A5AC9EFF06}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Qubix.Contracts", "Qubix.Contracts\Qubix.Contracts.csproj", "{9C8CE456-0B81-4B26-A851-27F99066CBE8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Qubix.Domain", "Qubix.Domain\Qubix.Domain.csproj", "{B314AE68-6889-4BD0-8949-DE22EA15E50C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Qubix.Infrastructure", "Qubix.Infrastructure\Qubix.Infrastructure.csproj", "{B337A53D-BA9A-4781-AAA3-FA035A3CEA47}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requests", "Requests", "{A3E6AF71-518A-4E18-8276-723BC4D2002C}"
+	ProjectSection(SolutionItems) = preProject
+		GetResults.http = GetResults.http
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Auth", "Auth", "{6CCA042C-78FA-4BD8-8C71-ADDBB0A4B0BB}"
+	ProjectSection(SolutionItems) = preProject
+		LoginRequest.http = LoginRequest.http
+		RegisterRequest.http = RegisterRequest.http
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44F71AFF-C5CE-43E5-B718-65A35D15FA1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44F71AFF-C5CE-43E5-B718-65A35D15FA1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44F71AFF-C5CE-43E5-B718-65A35D15FA1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44F71AFF-C5CE-43E5-B718-65A35D15FA1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{696C0770-C929-40B3-89FC-E7A5AC9EFF06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{696C0770-C929-40B3-89FC-E7A5AC9EFF06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{696C0770-C929-40B3-89FC-E7A5AC9EFF06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{696C0770-C929-40B3-89FC-E7A5AC9EFF06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C8CE456-0B81-4B26-A851-27F99066CBE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C8CE456-0B81-4B26-A851-27F99066CBE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C8CE456-0B81-4B26-A851-27F99066CBE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C8CE456-0B81-4B26-A851-27F99066CBE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B314AE68-6889-4BD0-8949-DE22EA15E50C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B314AE68-6889-4BD0-8949-DE22EA15E50C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B314AE68-6889-4BD0-8949-DE22EA15E50C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B314AE68-6889-4BD0-8949-DE22EA15E50C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B337A53D-BA9A-4781-AAA3-FA035A3CEA47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B337A53D-BA9A-4781-AAA3-FA035A3CEA47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B337A53D-BA9A-4781-AAA3-FA035A3CEA47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B337A53D-BA9A-4781-AAA3-FA035A3CEA47}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CE58FCCE-E839-4604-9BAD-399412BA7BDB}
+	EndGlobalSection
+EndGlobal

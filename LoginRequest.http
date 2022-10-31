@@ -1,0 +1,12 @@
+@hostname = localhost
+@port = 7077
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+
+POST https://{{host}}/auth/login
+Content-Type:{{contentType}}
+
+{
+    "email": "aleksandarr727@gmail.com",
+    "password": "ajmo123"
+}
