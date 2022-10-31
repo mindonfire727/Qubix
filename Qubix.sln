@@ -24,6 +24,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Auth", "Auth", "{6CCA042C-7
 		RegisterRequest.http = RegisterRequest.http
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{69F5DBE4-B5AF-43E2-9EE9-B14B1FFEED89}"
+	ProjectSection(SolutionItems) = preProject
+		DomainModels.md = DomainModels.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

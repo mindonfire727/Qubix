@@ -23,11 +23,12 @@ namespace Qubix.API.Controllers
                 request.LastName,
                 request.Email,
                 request.Password);
+
             var response = new AuthenticationResponse(
-                authResult.id,
-                authResult.firstName,
-                authResult.lastName,
-                authResult.email,
+                authResult.user.Id,
+                authResult.user.Name,
+                authResult.user.LastName,
+                authResult.user.Email,
                 authResult.token);
 
             return Ok(response);
@@ -41,10 +42,10 @@ namespace Qubix.API.Controllers
                 request.Password);
 
             var response = new AuthenticationResponse(
-                authResult.id,
-                authResult.firstName,
-                authResult.lastName,
-                authResult.email,
+                authResult.user.Id,
+                authResult.user.Name,
+                authResult.user.LastName,
+                authResult.user.Email,
                 authResult.token);
 
             return Ok(response);

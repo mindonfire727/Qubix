@@ -1,7 +1,9 @@
-﻿namespace Qubix.Application.Common.Interfaces.Authentication
+﻿using Qubix.Domain.Entities;
+
+namespace Qubix.Application.Common.Interfaces.Authentication
 {
     public interface IJwtTokenGenerator
     {
-        string GenerateToken(Guid userId, string firstName, string lastName);
+        string GenerateToken(User user);
     }
 }

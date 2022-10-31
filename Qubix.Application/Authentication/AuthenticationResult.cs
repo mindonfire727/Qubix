@@ -1,5 +1,7 @@
-﻿namespace Qubix.Application.Authentication
+﻿using Qubix.Domain.Entities;
+
+namespace Qubix.Application.Authentication
 {
-    public record AuthenticationResult(Guid id, string firstName, string lastName, string email, string token);
+    public record AuthenticationResult(User user, string token);
 }
 
