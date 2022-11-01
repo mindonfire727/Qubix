@@ -13,4 +13,9 @@
     <ProjectReference Include="..\Qubix.Infrastructure\Qubix.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="errorOr" Version="1.0.1" />
+    <PackageReference Include="fluentResults" Version="3.14.0" />
+  </ItemGroup>
+
 </Project>

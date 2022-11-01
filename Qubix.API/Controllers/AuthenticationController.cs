@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ErrorOr;
+using Microsoft.AspNetCore.Mvc;
 using Qubix.Application.Authentication;
 using Qubix.Contracts.Authentication;
 
@@ -6,7 +7,7 @@ namespace Qubix.API.Controllers
 {
     [ApiController]
     [Route("auth")]
-    public class AuthenticationController : ControllerBase
+    public class AuthenticationController : ApiController
     {
         private readonly IAuthenticationService _authenticationService;
 
@@ -18,37 +19,41 @@ namespace Qubix.API.Controllers
         [HttpPost("register")]
         public IActionResult Register(RegisterRequest request)
         {
-            var authResult = _authenticationService.Register(
+            ErrorOr<AuthenticationResult> authResult = _authenticationService.Register(
                 request.FirstName,
                 request.LastName,
                 request.Email,
                 request.Password);
 
-            var response = new AuthenticationResponse(
-                authResult.user.Id,
-                authResult.user.Name,
-                authResult.user.LastName,
-                authResult.user.Email,
-                authResult.token);
+            return authResult.Match(
+                authResult => Ok(MapAuthResult(authResult)),
+                errors => Problem(errors));
+        }
 
-            return Ok(response);
+        private static AuthenticationResponse MapAuthResult(ErrorOr<AuthenticationResult> authResult)
+        {
+            return new AuthenticationResponse(
+                            authResult.Value.user.Id,
+                            authResult.Value.user.Name,
+                            authResult.Value.user.LastName,
+                            authResult.Value.user.Email,
+                            authResult.Value.token);
         }
 
         [HttpPost("login")]
         public IActionResult Login(LoginRequest request)
         {
-            var authResult = _authenticationService.Login(
+            ErrorOr<AuthenticationResult> authResult = _authenticationService.Login(
                 request.Email,
                 request.Password);
 
-            var response = new AuthenticationResponse(
-                authResult.user.Id,
-                authResult.user.Name,
-                authResult.user.LastName,
-                authResult.user.Email,
-                authResult.token);
-
-            return Ok(response);
+            if (authResult.IsError && authResult.FirstError == Domain.Common.Errors.Errors.Auth.InvalidCredentials)
+            {
+                return Problem(statusCode: StatusCodes.Status401Unauthorized, title: authResult.FirstError.Description);
+            }
+            return authResult.Match(
+                authResult => Ok(MapAuthResult(authResult)),
+                errors => Problem(errors));
         }
     }
 }

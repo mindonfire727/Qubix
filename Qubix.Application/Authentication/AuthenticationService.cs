@@ -1,5 +1,7 @@
-﻿using Qubix.Application.Common.Interfaces.Authentication;
+﻿using ErrorOr;
+using Qubix.Application.Common.Interfaces.Authentication;
 using Qubix.Application.Common.Interfaces.Persistence;
+using Qubix.Domain.Common.Errors;
 using Qubix.Domain.Entities;
 
 namespace Qubix.Application.Authentication
@@ -15,26 +17,26 @@ namespace Qubix.Application.Authentication
             _userRepository = userRepository;
         }
 
-        public AuthenticationResult Login(string email, string password)
+        public ErrorOr<AuthenticationResult> Login(string email, string password)
         {
             if (_userRepository.GetUserByEmail(email) is not User user)
             {
-                throw new Exception("User does not exists");
+                return Errors.Auth.InvalidCredentials;
             }
 
             if (user.Password != password)
             {
-                throw new Exception("Password incorrect");
+                return Errors.Auth.InvalidCredentials;
             }
             var token = _tokenGenerator.GenerateToken(user);
             return new AuthenticationResult(user, token);
         }
 
-        public AuthenticationResult Register(string firstName, string lastName, string email, string password)
+        public ErrorOr<AuthenticationResult> Register(string firstName, string lastName, string email, string password)
         {
             if (_userRepository.GetUserByEmail(email) is not null)
             {
-                throw new Exception("User already exists");
+                return Errors.User.DuplicateEmail;
             }
             var user = new User
             {
